@@ -1,17 +1,13 @@
 #include <iostream>
-extern "C" {
 #include "libtcc.h"
+
+void callme(int x) {
+    printf("hello, %d\n", x);
 }
 
-extern "C" {
-    void callme(int x) {
-        printf("hello, %d\n", x);
-    }
-
-    void error_func(void * user, const char * msg) {
-        printf("TCC Error: %s\n", msg);
-        exit(1);
-    }
+void error_func(void * user, const char * msg) {
+    printf("TCC Error: %s\n", msg);
+    exit(1);
 }
 
 int main(int argc, char ** argv) {
